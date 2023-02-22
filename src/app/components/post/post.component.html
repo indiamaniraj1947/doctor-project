@@ -1,0 +1,91 @@
+<div class="container bg">
+  <div class="imageDiv">
+    <div class="container">
+      <div class="grid">
+        <div class="col-6 lg:col-6 md:col-6 sm:col-6 p-7">
+          <video width="700" controls>
+            <source src="mov_bbb.mp4" type="video/mp4" />
+            <source src="mov_bbb.ogg" type="video/ogg" />
+            Your browser does not support HTML video.
+          </video>
+        </div>
+        <div class="col-6 lg:col-6 md:col-6 sm:col-6">
+          <div class="card">
+            <p-tabView>
+              <p-tabPanel
+                header="Header I"
+                leftIcon="pi pi-calendar"
+                tooltip="1972"
+              >
+                <p-listbox
+                  [options]="groupedCities"
+                  [group]="true"
+                  [(ngModel)]="selectedCountries"
+                  [metaKeySelection]="false"
+                  [checkbox]="true"
+                  [filter]="true"
+                  [multiple]="true"
+                  [listStyle]="{ 'max-height': '250px' }"
+                  [style]="{ width: '15rem' }"
+                >
+                  <ng-template let-group pTemplate="group">
+                    <div class="p-d-flex p-ai-center">
+                      <span>{{ group.label }}</span>
+                    </div>
+                  </ng-template>
+                </p-listbox>
+              </p-tabPanel>
+              <p-tabPanel
+                header="Header II"
+                rightIcon="pi pi-inbox"
+                tooltip="1974"
+              >
+                <p-listbox
+                  [options]="groupedCities"
+                  [group]="true"
+                  [(ngModel)]="selectedCountries"
+                  [metaKeySelection]="false"
+                  [checkbox]="true"
+                  [filter]="true"
+                  [multiple]="true"
+                  [listStyle]="{ 'max-height': '250px' }"
+                  [style]="{ width: '15rem' }"
+                >
+                  <ng-template let-group pTemplate="group">
+                    <div class="p-d-flex p-ai-center">
+                      <span>{{ group.label }}</span>
+                    </div>
+                  </ng-template>
+                </p-listbox>
+              </p-tabPanel>
+              <p-tabPanel
+                header="Header III"
+                leftIcon="pi pi-user"
+                rightIcon="pi pi-star"
+                tooltip="1990"
+              >
+                <p-listbox
+                  [options]="groupedCities"
+                  [group]="true"
+                  [(ngModel)]="selectedCountries"
+                  [metaKeySelection]="false"
+                  [checkbox]="true"
+                  [filter]="true"
+                  [multiple]="true"
+                  [listStyle]="{ 'max-height': '250px' }"
+                  [style]="{ width: '15rem' }"
+                >
+                  <ng-template let-group pTemplate="group">
+                    <div class="p-d-flex p-ai-center">
+                      <span>{{ group.label }}</span>
+                    </div>
+                  </ng-template>
+                </p-listbox>
+              </p-tabPanel>
+            </p-tabView>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

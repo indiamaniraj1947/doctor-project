@@ -1,0 +1,28 @@
+// :host::ng-deep {
+//   .p-menubar {
+//     display: flex;
+//     align-items: right;
+//   }
+// }
+
+.main-nav {
+}
+.main-nav ul {
+  padding: 0;
+  display: flex;
+  position: relative;
+  margin: 0;
+  list-style: none;
+}
+.main-nav ul li {
+  float: left;
+  margin-left: 35px;
+  font-size: 18px;
+  position: relative;
+}
+.main-nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  margin: 0, 15px;
+  position: relative;
+}

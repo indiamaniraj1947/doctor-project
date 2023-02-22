@@ -1,0 +1,39 @@
+<div class="container bg">
+  <div class="grid">
+    <div class="col-6 lg:col-6 md:col-6 sm:col-6">
+      <p-card header="Notes">
+        <div class="overflow-y-scroll h-full">
+          {{ defVal }}{{ defVal }}{{ defVal }}{{ defVal }}{{ defVal }}{{ defVal
+          }}{{ defVal }}{{ defVal }}{{ defVal }}
+        </div>
+        <ng-template pTemplate="footer"></ng-template>
+      </p-card>
+    </div>
+    <div class="col-6 lg:col-6 md:col-6 sm:col-6">
+      <p-card header="Form" [style]="{ width: '50vw' }">
+        <div class="overflow-y-scroll">
+          <label class="mr-2">Did you achieve your goal?</label>
+
+          <p-radioButton
+            name="city"
+            value="Yes"
+            inputId="city1"
+          ></p-radioButton>
+          <label for="city1">Yes</label>
+
+          <p-radioButton
+            name="city"
+            value="Partialy"
+            inputId="city2"
+          ></p-radioButton>
+          <label class="mr-2">Partialy</label>
+
+          <p-radioButton name="city" value="No" inputId="city3"></p-radioButton>
+          <label class="mr-2">No</label>
+        </div>
+
+        <ng-template pTemplate="footer"></ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
