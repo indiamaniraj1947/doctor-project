@@ -15,8 +15,9 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
 import { AccordionComponent } from './shared/components/accordion/accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { ScrollDirective } from './directives/scroll.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     FaqComponent,
     AppointmentComponent,
     AccordionComponent,
+    ScrollDirective,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     MultiSelectModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
