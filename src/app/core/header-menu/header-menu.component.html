@@ -1,20 +1,5 @@
-<!-- <div class="w-screen mt-0">
-  <p-menubar [model]="items" [style]="{ width: '99vw' }">
-    <ng-template pTemplate="start">
-      <img
-        src="https://primefaces.org/cdn/primeng/images/primeng.svg"
-        height="40"
-        class="mr-2"
-      />
-    </ng-template>
-    <ng-template pTemplate="end">
-      <input type="text" pInputText placeholder="Search" />
-    </ng-template>
-  </p-menubar>
-</div> -->
-<!-- <a href="#" class="logo"> <img src="./assets/images/logo.png" /></a>
-routerLinkActive="active"-->
-<nav class="main-nav">
+<nav class="main-nav" appScroll>
+  <a class="logo" routerLink="/home"> Logo </a>
   <ul>
     <li>
       <a (click)="toHome()" routerLink="/home" routerLinkActive="active">
