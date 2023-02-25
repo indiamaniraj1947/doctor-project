@@ -12,15 +12,56 @@
     </ng-template>
   </p-menubar>
 </div> -->
-<!-- <a href="#" class="logo"> <img src="./assets/images/logo.png" /></a> -->
+<!-- <a href="#" class="logo"> <img src="./assets/images/logo.png" /></a>
+routerLinkActive="active"-->
 <nav class="main-nav">
   <ul>
-    <li><a href="#home"> Home </a></li>
-    <li><a href="#appointment"> Appointment </a></li>
-    <li><a href="#about"> About</a></li>
-    <li><a href="#post"> Post</a></li>
-    <li><a href="#feedback"> Feedback </a></li>
-    <li><a href="#faq"> FAQ </a></li>
-    <li><a href="#contact"> Contact</a></li>
+    <li>
+      <a (click)="toHome()" routerLink="/home" routerLinkActive="active">
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="toAppointment()"
+        routerLink="/appointment"
+        routerLinkActive="active"
+      >
+        Appointment
+      </a>
+    </li>
+    <li>
+      <a (click)="toAbout()" routerLink="/about" routerLinkActive="active">
+        About</a
+      >
+    </li>
+    <li>
+      <a (click)="toPost()" routerLink="/post" routerLinkActive="active">
+        Post</a
+      >
+    </li>
+    <li>
+      <a
+        (click)="toFeedback()"
+        routerLink="/feedback"
+        routerLinkActive="active"
+      >
+        Feedback
+      </a>
+    </li>
+    <li>
+      <a (click)="toFAQ()" routerLink="/appointment" routerLinkActive="active">
+        FAQ
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="toContact()"
+        routerLink="/appointment"
+        routerLinkActive="active"
+      >
+        Contact</a
+      >
+    </li>
   </ul>
 </nav>

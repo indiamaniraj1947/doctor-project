@@ -16,6 +16,7 @@ import { AccordionComponent } from './shared/components/accordion/accordion.comp
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MultiSelectModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
