@@ -3,15 +3,42 @@
 @import "../node_modules/primeng/resources/primeng.min.css";
 @import "../node_modules/primeflex/primeflex.css";
 
+body,
+html {
+  margin: 0;
+  font-family: ariel;
+  font-size: 18px;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
+}
+.sectionStyle {
+  margin-top: 8rem;
+  margin-left: 0.5rem;
+  height: 88vh;
+  width: 98vw;
+  border-radius: 0.2rem;
+  background-color: #fff;
 }
 
 .imageDiv {
   border: 0px;
   padding: 0px;
-  background: url("../../../assets/images/shadebg.jpg");
+  background: url("assets/images/shadebg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.imageDiv2 {
+  border: 0px;
+  padding: 0px;
+  background: url("assets/images/shade2bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

@@ -1,0 +1,57 @@
+{
+  "questionSet": [
+    {
+      "question": "Are you fillining in this questionaire for:",
+      "options": [
+        "Yourself",
+        "Your child",
+        "Your spouse or partner",
+        "Another relatiove or friend"
+      ],
+      "multiQuestion": false,
+      "control": "CheckBox"
+    },
+    {
+      "question": "Which of the followingbest describes the reason you saw the doctor today:",
+      "options": [
+        "To ask for advice",
+        "Because of ongoing problem",
+        "for treatment(including prescriptions)",
+        "Because of a one-off problem",
+        "For a routine check",
+        "Others"
+      ],
+      "optionsHind": ["", "", "", "", "", "(Please give details)"],
+      "multiQuestion": false,
+      "control": "CheckBox"
+    },
+    {
+      "question": "On a scale of 1 to 5,how important to your health and wellbeing was your reason foe visiting the doctor today",
+      "options": ["1", "2", "3", "4", "5"],
+      "optionsHind": ["(Not very Important)", "", "", "", "(very Important)"],
+      "multiQuestion": false,
+      "control": "RadioButton"
+    },
+    {
+      "question": "how good was your doctor today at each of the following",
+      "subQuestion": [
+        "Being polite",
+        "Making you feel at ease",
+        "Listening to you",
+        "Assessing your medical condition",
+        "Explaining your condition and treatment",
+        "Involving you in decisions about your treatment"
+      ],
+      "options": [
+        "Poor",
+        "Less than satisfactory",
+        "Satisfactory",
+        "Good",
+        "Very Good",
+        "Does not apply"
+      ],
+      "multiQuestion": true,
+      "control": "RadioButton"
+    }
+  ]
+}

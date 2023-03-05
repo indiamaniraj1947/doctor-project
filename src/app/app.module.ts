@@ -18,6 +18,16 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ScrollDirective } from './directives/scroll.directive';
+import { AddEditFeedbackComponent } from './components/add-edit-feedback/add-edit-feedback.component';
+import { CrudService } from './services/crud.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
+import { OptionFormComponent } from './shared/components/option-form/option-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CheckboxModule } from 'primeng/checkbox';
+import { NgScrollbarModule, NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +43,8 @@ import { ScrollDirective } from './directives/scroll.directive';
     AppointmentComponent,
     AccordionComponent,
     ScrollDirective,
+    AddEditFeedbackComponent,
+    OptionFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +54,14 @@ import { ScrollDirective } from './directives/scroll.directive';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    HttpClientModule,
+    CheckboxModule,
+    NgScrollbarModule,
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

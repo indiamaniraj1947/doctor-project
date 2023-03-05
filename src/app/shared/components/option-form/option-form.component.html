@@ -1,0 +1,63 @@
+<div>
+  <div *ngFor="let ques of questions">
+    <p-card>
+      <div *ngIf="!ques.multiQuestion">
+        <div class="grid">
+          <div class="col-12 lg:col-12 md:col-12 sm:col-12">
+            <label>{{ ques.question }} </label>
+          </div>
+          <div class="col-12 lg:col-12 md:col-12 sm:col-12">
+            <span *ngFor="let opt of ques.options">
+              <span *ngIf="ques.control == 'CheckBox'">
+                <p-checkbox
+                  name="answers"
+                  [value]="opt"
+                  [inputId]="opt"
+                ></p-checkbox>
+                <label [for]="opt" class="ml-3 mr-3">{{ opt }}</label>
+              </span>
+              <span *ngIf="ques.control == 'RadioButton'">
+                <p-radioButton
+                  name="answers"
+                  [value]="opt"
+                  [inputId]="opt"
+                ></p-radioButton>
+                <label [for]="opt" class="ml-3 mr-3">{{ opt }}</label>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="ques.multiQuestion">
+        <div class="grid">
+          <div class="col-12 lg:col-12 md:col-12 sm:col-12">
+            <label>{{ ques.question }} </label>
+          </div>
+          <table class="ml-4">
+            <tr *ngFor="let subQues of ques.subQuestion">
+              <td>{{ subQues }}</td>
+              <td *ngFor="let opt of ques.options">
+                <span *ngIf="ques.control == 'RadioButton'">
+                  <p-radioButton
+                    [name]="subQues"
+                    [value]="opt"
+                    [inputId]="opt"
+                  ></p-radioButton>
+                  <label [for]="opt" class="ml-3 mr-3">{{ opt }}</label>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="flex align-items-center justify-content-end">
+    <p-button
+      label="Submit"
+      icon="pi pi-check"
+      styleClass="p-button-sm"
+    ></p-button>
+  </div>
+</div>

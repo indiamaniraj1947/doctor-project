@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { AddEditFeedbackComponent } from './components/add-edit-feedback/add-edit-feedback.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqComponent } from './components/faq/faq.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'login', component: AddEditFeedbackComponent },
 ];
 // const routerOptions: ExtraOptions = {
 //   scrollPositionRestoration: 'enabled',
