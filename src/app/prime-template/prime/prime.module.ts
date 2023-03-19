@@ -11,6 +11,15 @@ import { TabViewModule } from 'primeng/tabview';
 import { ListboxModule } from 'primeng/listbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
+import { SliderModule } from 'primeng/slider';
+import { DialogModule } from 'primeng/dialog';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { ToastModule } from 'primeng/toast';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [],
   imports: [
@@ -25,6 +34,15 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     ListboxModule,
     SelectButtonModule,
     RadioButtonModule,
+    ChartModule,
+    TableModule,
+    SliderModule,
+    DialogModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    ToastModule,
+    ProgressBarModule,
+    DropdownModule,
   ],
   exports: [
     MenubarModule,
@@ -37,6 +55,15 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     ListboxModule,
     SelectButtonModule,
     RadioButtonModule,
+    ChartModule,
+    TableModule,
+    SliderModule,
+    DialogModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    ToastModule,
+    ProgressBarModule,
+    DropdownModule,
   ],
 })
 export class PrimeModule {}

@@ -8,19 +8,28 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class AddEditFeedbackComponent {
   title = 'webshop1';
-  products: any;
+  feedbacks: any;
   productName: string | undefined;
 
   constructor(private crudService: CrudService) {}
 
   ngOnInit() {
     this.crudService.read_Products().subscribe((data: any) => {
-      this.products = data.map((e: any) => {
+      this.feedbacks = data.map((e: any) => {
+        console.log('e==>', e);
+        console.log('e.payload.doc.data()==>', e.payload.doc.data());
         return {
           //rdata: e.payload.doc.data()
-          id: e.payload.doc.id,
-          isEdit: false,
-          Name: e.payload.doc.data(),
+          systemId: e.payload.doc.id,
+          answer1: e.payload.doc.data().answer1,
+          answer2: e.payload.doc.data().answer2,
+          answer3: e.payload.doc.data().answer3,
+          answer4: e.payload.doc.data().answer4,
+          answer5: e.payload.doc.data().answer5,
+          answer6: e.payload.doc.data().answer6,
+          answer7: e.payload.doc.data().answer7,
+          answer8: e.payload.doc.data().answer8,
+          answer9: e.payload.doc.data().answer9,
         };
       });
     });

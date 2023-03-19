@@ -26,9 +26,22 @@
   </div>
   <div class="row" style="margin-top: 25px">
     <div class="col-md-3">
-      <div class="card" style="width: 18rem" *ngFor="let item of products">
-        <div class="card-body" *ngIf="!item.isEdit; else elseBlock">
-          <h5 class="card-title">{{ item.Name["Name"] }}</h5>
+      <div class="card" style="width: 18rem" *ngFor="let item of feedbacks">
+        <div class="card-body">
+          <div class="card-title">{{ "Patients Response" }}</div>
+          <div>
+            <p>{{ item.systemId }}</p>
+            <p>{{ item.answer1 }}</p>
+            <p>{{ item.answer2 }}</p>
+            <p>{{ item.answer3 }}</p>
+            <p>{{ item.answer4 }}</p>
+            <p>{{ item.answer5 }}</p>
+            <p>{{ item.answer6 }}</p>
+            <p>{{ item.answer7 }}</p>
+            <p>{{ item.answer8 }}</p>
+            <p>{{ item.answer9 }}</p>
+          </div>
+
           <a href="#" class="card-link" (click)="EditRecord(item)">Edit</a>
           <a href="#" class="card-link" (click)="RemoveRecord(item.id)"
             >Delete</a

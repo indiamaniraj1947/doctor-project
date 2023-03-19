@@ -28,6 +28,9 @@ import { OptionFormComponent } from './shared/components/option-form/option-form
 import { HttpClientModule } from '@angular/common/http';
 import { CheckboxModule } from 'primeng/checkbox';
 import { NgScrollbarModule, NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { TableComponent } from './shared/components/table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +48,9 @@ import { NgScrollbarModule, NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
     ScrollDirective,
     AddEditFeedbackComponent,
     OptionFormComponent,
+    DashboardComponent,
+    SideNavComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

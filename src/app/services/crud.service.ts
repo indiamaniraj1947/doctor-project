@@ -10,7 +10,7 @@ export class CrudService {
     return await this.firestore.collection('Products').add(item);
   }
   read_Products() {
-    let colval = this.firestore.collection('Products').snapshotChanges();
+    let colval = this.firestore.collection('FeedBacks').snapshotChanges();
     colval.subscribe((val: any) => {
       console.log('colval==>', val);
     });
@@ -21,5 +21,9 @@ export class CrudService {
   }
   delete_Product(itemID: any) {
     this.firestore.doc('Products/' + itemID).delete();
+  }
+
+  async createNewFeedback(item: any) {
+    return await this.firestore.collection('FeedBacks').add(item);
   }
 }

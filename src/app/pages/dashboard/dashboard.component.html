@@ -1,0 +1,40 @@
+<app-side-nav></app-side-nav>
+<p-menubar [style]="{ height: '55px', margin: '0 0 0 300px' }">
+  <div>
+    <input type="text" pInputText placeholder="Search" />
+    <button
+      type="button"
+      pButton
+      label="Search"
+      icon="pi pi-search"
+      style="margin-left: 0.25em"
+    ></button>
+  </div>
+</p-menubar>
+
+<div class="grid mt-3">
+  <div class="col-6">
+    <div
+      class="card"
+      [style]="{ height: '500px', width: '600px', margin: '0 0 0 300px' }"
+    >
+      <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+    </div>
+  </div>
+  <div class="col-6">
+    <div
+      class="card"
+      [style]="{ height: '300px', width: '300px', margin: '0 0 0 300px' }"
+    >
+      <p-chart type="doughnut" [data]="data" [options]="basicOptions"></p-chart>
+    </div>
+  </div>
+</div>
+
+<div class="grid" [style]="{ margin: '-150px 0 0 0' }">
+  <div class="col-12">
+    <div class="card" [style]="{ margin: '0 0 0 300px' }">
+      <app-table></app-table>
+    </div>
+  </div>
+</div>

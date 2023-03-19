@@ -22,6 +22,7 @@
     "@fullcalendar/angular": "^6.1.4",
     "@fullcalendar/core": "^6.1.4",
     "@fullcalendar/daygrid": "^6.1.4",
+    "chart.js": "^4.2.1",
     "firebase": "^9.17.1",
     "ngx-scrollbar": "^11.0.0",
     "primeflex": "^3.3.0",

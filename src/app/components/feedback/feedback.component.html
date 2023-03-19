@@ -1,8 +1,118 @@
-<!-- <div class="imageDiv"> -->
-<!-- <ng-scrollbar> -->
-<!-- <div class="card shadow-1"> -->
-<app-option-form></app-option-form>
-<!-- </div> -->
-<!-- </ng-scrollbar> -->
-
-<!-- </div> -->
+<!-- <app-add-edit-feedback></app-add-edit-feedback> -->
+<!-- <app-option-form></app-option-form> -->
+<div [formGroup]="feedBackForm" (ngSubmit)="onSubmit()">
+  <p-card>
+    <div class="grid">
+      <div class="col-12">{{ feedbackText.questions.question1.label }}</div>
+      <div class="col-12">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet1"
+          name="ques1Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques1Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-12">{{ feedbackText.questions.question2.label }}</div>
+      <div class="col-12">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet2"
+          name="ques2Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques2Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-12">{{ feedbackText.questions.question3.label }}</div>
+      <div class="col-12">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet3"
+          name="ques3Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques3Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-12">{{ feedbackText.questions.question4.label }}</div>
+      <div class="col-4">{{ feedbackText.questions.question5.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques5Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques5Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-4">{{ feedbackText.questions.question6.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques6Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques6Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-4">{{ feedbackText.questions.question7.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques7Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques7Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-4">{{ feedbackText.questions.question8.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques8Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques8Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-4">{{ feedbackText.questions.question9.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques9Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques9Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+      <div class="col-4">{{ feedbackText.questions.question10.label }}</div>
+      <div class="col-8">
+        <p-radioButton
+          *ngFor="let option of feedbackText.optionSet4"
+          name="ques10Control"
+          [inputId]="option.label"
+          [value]="option"
+          [formControlName]="'ques10Control'"
+          [label]="option.label"
+          class="mr-2"
+        ></p-radioButton>
+      </div>
+    </div>
+    <p-button label="Submit" type="submit" (onClick)="onSubmit()"></p-button>
+  </p-card>
+</div>
