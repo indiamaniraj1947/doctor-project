@@ -15,7 +15,10 @@ export class TableComponent {
 
   selectedCustomers: Customer[] = [];
 
-  representatives: Representative[] = [];
+  answerSet1: any[] = [];
+  answerSet2: any[] = [];
+  answerSet3: any[] = [];
+  answerSet4: any[] = [];
 
   statuses: any[] = [];
 
@@ -31,20 +34,32 @@ export class TableComponent {
   ngOnInit() {
     this.customerService.getCustomersLarge().then((customers) => {
       this.customers = customers;
+      console.log(' this.customers==>', this.customers);
       this.loading = false;
     });
 
-    this.representatives = [
-      { name: 'Amy Elsner', image: 'amyelsner.png' },
-      { name: 'Anna Fali', image: 'annafali.png' },
-      { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
-      { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
-      { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
-      { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
-      { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
-      { name: 'Onyama Limba', image: 'onyamalimba.png' },
-      { name: 'Stephen Shaw', image: 'stephenshaw.png' },
-      { name: 'XuXue Feng', image: 'xuxuefeng.png' },
+    this.answerSet1 = [
+      'Yourself',
+      'Your child',
+      'Your spouse or partner',
+      'Another relatiove or friend',
+    ];
+    this.answerSet2 = [
+      'To ask for advice',
+      'Because of ongoing problem',
+      'for treatment(including prescriptions)',
+      'Because of a one-off problem',
+      'For a routine check',
+      'Others',
+    ];
+    this.answerSet3 = ['1', '2', '3', '4', '5'];
+    this.answerSet4 = [
+      'Poor',
+      'Less than satisfactory',
+      'Satisfactory',
+      'Good',
+      'Very Good',
+      'Does not apply',
     ];
 
     this.statuses = [

@@ -10,7 +10,7 @@ export class SharedService {
 
   getCustomersLarge() {
     return this.http
-      .get<any>('../../../assets/customers-large.json')
+      .get<any>('../../../assets/jsonFiles/customers-large.json')
       .toPromise()
       .then((res) => <Customer[]>res.data)
       .then((data) => {

@@ -20,63 +20,55 @@
 >
   <ng-template pTemplate="header">
     <tr>
-      <th style="width: 3rem"></th>
-      <th pSortableColumn="name">
-        Name <p-sortIcon field="name"></p-sortIcon>
+      <!-- <th style="width: 3rem"></th> -->
+      <th [style]="{ color: '#ffa726' }" pSortableColumn="system">
+        SystemID <p-sortIcon field="name"></p-sortIcon>
       </th>
-      <th pSortableColumn="country.name">
-        Country <p-sortIcon field="country.name"></p-sortIcon>
+      <th [style]="{ color: '#ff6384' }" pSortableColumn="date">
+        Date&Time <p-sortIcon field="country.name"></p-sortIcon>
       </th>
-      <th pSortableColumn="representative.name">
-        Representative <p-sortIcon field="representative.name"></p-sortIcon>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer1">
+        ForWhom <p-sortIcon field="representative.name"></p-sortIcon>
       </th>
-      <th pSortableColumn="date">
-        Date <p-sortIcon field="date"></p-sortIcon>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer2">
+        Best In <p-sortIcon field="date"></p-sortIcon>
       </th>
-      <th pSortableColumn="status">
-        Status <p-sortIcon field="status"></p-sortIcon>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer3">
+        Rating <p-sortIcon field="status"></p-sortIcon>
       </th>
-      <th pSortableColumn="activity">
-        Activity <p-sortIcon field="activity"></p-sortIcon>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer4">
+        Polite <p-sortIcon field="activity"></p-sortIcon>
       </th>
-      <th style="width: 8rem"></th>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer5">
+        FeelEase <p-sortIcon field="activity"></p-sortIcon>
+      </th>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer6">
+        Listening <p-sortIcon field="activity"></p-sortIcon>
+      </th>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer7">
+        Assessing <p-sortIcon field="activity"></p-sortIcon>
+      </th>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer8">
+        Explaining <p-sortIcon field="activity"></p-sortIcon>
+      </th>
+      <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer9">
+        Involving <p-sortIcon field="activity"></p-sortIcon>
+      </th>
+      <!-- <th style="width: 8rem"></th> -->
     </tr>
     <tr>
-      <th>
+      <!-- <th>
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-      </th>
+      </th> -->
       <th>
         <input
           pInputText
           type="text"
           (input)="dt.filter($event.target, 'name', 'startsWith')"
-          placeholder="Search by Name"
+          placeholder="Search system"
           class="p-column-filter"
+          [style]="{ color: '#42a5f5' }"
         />
-      </th>
-      <th>
-        <input
-          pInputText
-          type="text"
-          (input)="dt.filter($event.target, 'country.name', 'contains')"
-          placeholder="Search by Country"
-          class="p-column-filter"
-        />
-      </th>
-      <th>
-        <p-multiSelect
-          [options]="representatives"
-          placeholder="All"
-          (onChange)="onRepresentativeChange($event)"
-          styleClass="p-column-filter"
-          optionLabel="name"
-        >
-          <ng-template let-option pTemplate="item">
-            <div class="p-multiselect-representative-option">
-              <span class="p-ml-1">{{ option.label }}</span>
-            </div>
-          </ng-template>
-        </p-multiSelect>
       </th>
       <th>
         <p-calendar
@@ -84,78 +76,215 @@
           (onClearClick)="dt.filter('', 'date', 'equals')"
           [showButtonBar]="true"
           styleClass="p-column-filter"
-          placeholder="Registration Date"
+          placeholder="Serach by Date"
           [readonlyInput]="true"
           dateFormat="yy-mm-dd"
+          [style]="{ color: '#42a5f5' }"
         ></p-calendar>
       </th>
       <th>
-        <p-dropdown
-          [options]="statuses"
-          (onChange)="dt.filter($event.value, 'status', 'equals')"
+        <p-multiSelect
+          [options]="answerSet1"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
           styleClass="p-column-filter"
-          placeholder="Select a Status"
-          [showClear]="true"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
         >
           <ng-template let-option pTemplate="item">
-            <span [class]="'customer-badge status-' + option.value"
-              >&#123;&#123;option.label&#125;&#125;</span
-            >
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
           </ng-template>
-        </p-dropdown>
+        </p-multiSelect>
       </th>
       <th>
-        <input
-          pInputText
-          type="text"
-          (input)="onActivityChange($event)"
-          placeholder="Minimum"
-          class="p-column-filter"
-        />
+        <p-multiSelect
+          [options]="answerSet2"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
       </th>
-      <th></th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet3"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <th>
+        <p-multiSelect
+          [options]="answerSet4"
+          placeholder="All"
+          (onChange)="onRepresentativeChange($event)"
+          styleClass="p-column-filter"
+          optionLabel="name"
+          [style]="{ color: '#42a5f5' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="p-ml-1">{{ option }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </th>
+      <!-- <th></th> -->
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-customer>
     <tr class="p-selectable-row">
-      <td>
+      <!-- <td>
         <p-tableCheckbox [value]="customer"></p-tableCheckbox>
-      </td>
-      <td>
-        <span class="p-column-title">Name</span>
-        {{ customer.name }}
-      </td>
-      <td>
-        <span class="p-column-title">Country</span>
-        <span class="image-text">{{ customer.country.name }}</span>
-      </td>
-      <td>
-        <span class="p-column-title">Representative</span>
-        <span class="image-text">{{ customer.representative.name }}</span>
+      </td> -->
+      <td class="systemIDField">
+        <span class="p-column-title">SystemID</span>
+        <span [style]="{ color: '#ffa726' }"> {{ customer.system }}</span>
       </td>
       <td>
         <span class="p-column-title">Date</span>
-        {{ customer.date }}
+        <span [style]="{ color: '#ff6384' }"> {{ customer.date }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Representative</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer1 }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Country</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer2 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [class]="'customer-badge status-' + customer.status">{{
-          customer.status
-        }}</span>
+        <p-rating [ngModel]="5"></p-rating>
       </td>
       <td>
         <span class="p-column-title">Activity</span>
-
-        <p-rating [ngModel]="5"></p-rating>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer4 }}</span>
       </td>
-      <td style="text-align: center">
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer5 }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer6 }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer7 }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer8 }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [style]="{ color: '#42a5f5' }">{{ customer.answer9 }}</span>
+      </td>
+      <!-- <td style="text-align: center">
         <button
           pButton
           type="button"
           class="p-button-secondary"
           icon="pi pi-cog"
         ></button>
-      </td>
+      </td> -->
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">
