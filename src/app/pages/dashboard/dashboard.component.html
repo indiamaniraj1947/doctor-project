@@ -33,8 +33,29 @@
 
 <div class="grid" [style]="{ margin: '-150px 0 0 0' }">
   <div class="col-12">
-    <div class="card" [style]="{ margin: '0 0 0 300px' }">
-      <app-table></app-table>
+    <div class="card" [style]="{ height: '500px', margin: '0 0 0 300px' }">
+      <app-table [feedbackData]="feedbackData"></app-table>
     </div>
   </div>
 </div>
+
+<p-card [style]="{ width: '500px', margin: '0 0 0 300px' }">
+  <ng-template pTemplate="header"></ng-template>
+  <p-table [value]="feedbackData" [tableStyle]="{ 'min-width': '1s0rem' }">
+    <ng-template pTemplate="header">
+      <!-- <tr>
+          <th></th>
+          <th></th>
+        </tr> -->
+    </ng-template>
+    <ng-template pTemplate="body" let-feedback>
+      <tr>
+        <td class="p-0 h-3rem">{{ feedback.system }}</td>
+        <td class="p-0">{{ feedback.answer2 }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <ng-template pTemplate="footer"
+    ><a class="text-blue-500 cursor-pointer">View All Commands</a>
+  </ng-template>
+</p-card>

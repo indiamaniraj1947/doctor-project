@@ -31,6 +31,7 @@ import { NgScrollbarModule, NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { TableComponent } from './shared/components/table/table.component';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,7 @@ import { TableComponent } from './shared/components/table/table.component';
     CheckboxModule,
     NgScrollbarModule,
   ],
-  providers: [CrudService],
+  providers: [CrudService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

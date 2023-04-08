@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { Table } from 'primeng/table';
 import { PrimeNGConfig } from 'primeng/api';
@@ -11,7 +11,7 @@ import { SharedService } from '../../services/shared.service';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
-  customers: Customer[] = [];
+  @Input() feedbackData: any[] = [];
 
   selectedCustomers: Customer[] = [];
 
@@ -32,11 +32,11 @@ export class TableComponent {
   ) {}
 
   ngOnInit() {
-    this.customerService.getCustomersLarge().then((customers) => {
-      this.customers = customers;
-      console.log(' this.customers==>', this.customers);
-      this.loading = false;
-    });
+    // this.customerService.getCustomersLarge().then((customers) => {
+    //   this.feedbackData = customers;
+    //   console.log(' this.customers==>', this.customers);
+    //   this.loading = false;
+    // });
 
     this.answerSet1 = [
       'Yourself',

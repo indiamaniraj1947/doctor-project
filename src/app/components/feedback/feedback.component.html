@@ -1,9 +1,15 @@
 <!-- <app-add-edit-feedback></app-add-edit-feedback> -->
 <!-- <app-option-form></app-option-form> -->
 <div [formGroup]="feedBackForm" (ngSubmit)="onSubmit()">
-  <p-card>
+  <p-card styleClass="p-shadow-12">
     <div class="grid">
-      <div class="col-12">{{ feedbackText.questions.question1.label }}</div>
+      <div class="col-12 text-blue-500 font-bold">
+        <span>
+          {{ feedbackText.questions.question1.label }}
+        </span>
+        <span class="text-red-500 font-bold">*</span>
+      </div>
+
       <div class="col-12">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet1"
@@ -15,7 +21,12 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-12">{{ feedbackText.questions.question2.label }}</div>
+      <div class="col-12 text-blue-500 font-bold">
+        <span>
+          {{ feedbackText.questions.question2.label }}
+        </span>
+        <span class="text-red-500 font-bold">*</span>
+      </div>
       <div class="col-12">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet2"
@@ -27,7 +38,12 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-12">{{ feedbackText.questions.question3.label }}</div>
+      <div class="col-12 text-blue-500 font-bold">
+        <span>
+          {{ feedbackText.questions.question3.label }}
+        </span>
+        <span class="text-red-500 font-bold">*</span>
+      </div>
       <div class="col-12">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet3"
@@ -39,8 +55,15 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-12">{{ feedbackText.questions.question4.label }}</div>
-      <div class="col-4">{{ feedbackText.questions.question5.label }}</div>
+      <div class="col-12 text-blue-500 font-bold">
+        <span>
+          {{ feedbackText.questions.question4.label }}
+        </span>
+        <span class="text-red-500 font-bold">*</span>
+      </div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question5.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -52,7 +75,9 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-4">{{ feedbackText.questions.question6.label }}</div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question6.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -64,7 +89,9 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-4">{{ feedbackText.questions.question7.label }}</div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question7.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -76,7 +103,9 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-4">{{ feedbackText.questions.question8.label }}</div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question8.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -88,7 +117,9 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-4">{{ feedbackText.questions.question9.label }}</div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question9.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -100,7 +131,9 @@
           class="mr-2"
         ></p-radioButton>
       </div>
-      <div class="col-4">{{ feedbackText.questions.question10.label }}</div>
+      <div class="col-4 text-blue-500 font-bold">
+        {{ feedbackText.questions.question10.label }}
+      </div>
       <div class="col-8">
         <p-radioButton
           *ngFor="let option of feedbackText.optionSet4"
@@ -112,7 +145,41 @@
           class="mr-2"
         ></p-radioButton>
       </div>
+      <!-- <div class="grid">
+        <div class="col">
+          {{ feedbackText.questions.question9.label }}
+        </div>
+        <div class="flex align-items-center justify-content-center">
+          <textarea
+            rows="5"
+            cols="30"
+            pInputTextarea
+            formControlName="commands"
+          ></textarea>
+        </div>
+      </div> -->
+      <div class="flex justify-content-end flex-wrap mt-3 w-11">
+        <div class="flex align-items-center justify-content-center">
+          <p-button
+            label="Submit"
+            type="submit"
+            class="mr-3"
+            icon="pi pi-check"
+            (onClick)="onSubmit()"
+          ></p-button>
+        </div>
+        <div class="flex align-items-center justify-content-center">
+          <p-button
+            label="Clear"
+            type="submit"
+            class="mr-3"
+            icon="pi pi-times"
+            (onClick)="onClear()"
+          ></p-button>
+        </div>
+      </div>
     </div>
-    <p-button label="Submit" type="submit" (onClick)="onSubmit()"></p-button>
   </p-card>
 </div>
+
+<p-toast position="bottom-right"></p-toast>

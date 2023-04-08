@@ -36,18 +36,18 @@ export class AddEditFeedbackComponent {
   }
 
   CreateRecord() {
-    //let record ={};
-    let record: { [key: string]: string } = {};
-    //record['Name'] = this.productName!;
-    record['Name'] = this.productName || '';
-    this.crudService
-      .create_NewProduct(record)
-      .then((resp: any) => {
-        this.productName = '';
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+    // //let record ={};
+    // let record: { [key: string]: string } = {};
+    // //record['Name'] = this.productName!;
+    // record['Name'] = this.productName || '';
+    // this.crudService
+    //   .create_NewProduct(record)
+    //   .then((resp: any) => {
+    //     this.productName = '';
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
   }
 
   RemoveRecord(rowID: number) {

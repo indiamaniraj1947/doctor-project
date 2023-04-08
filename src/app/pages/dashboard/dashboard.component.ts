@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,10 @@ export class DashboardComponent implements OnInit {
   data: any;
   basicData: any;
   basicOptions: any;
+  feedbackData: any[] = [];
+  constructor(private crudService: CrudService) {
+    this.feedbackData = this.crudService.readFeedbacks();
+  }
   ngOnInit(): void {
     this.basicData = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

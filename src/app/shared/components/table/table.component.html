@@ -1,6 +1,6 @@
 <p-table
   #dt
-  [value]="customers"
+  [value]="feedbackData"
   [(selection)]="selectedCustomers"
   dataKey="id"
   styleClass="p-datatable-customers"
@@ -11,6 +11,7 @@
   [paginator]="true"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   [filterDelay]="0"
+  [style]="{ height: '500px' }"
   [globalFilterFields]="[
     'name',
     'country.name',
@@ -25,7 +26,10 @@
         SystemID <p-sortIcon field="name"></p-sortIcon>
       </th>
       <th [style]="{ color: '#ff6384' }" pSortableColumn="date">
-        Date&Time <p-sortIcon field="country.name"></p-sortIcon>
+        Date <p-sortIcon field="country.name"></p-sortIcon>
+      </th>
+      <th [style]="{ color: '#ff6384' }" pSortableColumn="time">
+        Time <p-sortIcon field="country.name"></p-sortIcon>
       </th>
       <th [style]="{ color: '#42a5f5' }" pSortableColumn="answer1">
         ForWhom <p-sortIcon field="representative.name"></p-sortIcon>
@@ -80,6 +84,19 @@
           [readonlyInput]="true"
           dateFormat="yy-mm-dd"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
+        ></p-calendar>
+      </th>
+      <th>
+        <p-calendar
+          (onSelect)="onDateSelect($event)"
+          (onClearClick)="dt.filter('', 'date', 'equals')"
+          [showButtonBar]="true"
+          styleClass="p-column-filter p-calendar-timeonly"
+          placeholder="Serach by Time"
+          [readonlyInput]="true"
+          [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         ></p-calendar>
       </th>
       <th>
@@ -90,6 +107,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -105,6 +123,7 @@
           (onChange)="onRepresentativeChange($event)"
           styleClass="p-column-filter"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -121,6 +140,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -137,6 +157,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -153,6 +174,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -169,6 +191,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -185,6 +208,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -201,6 +225,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -217,6 +242,7 @@
           styleClass="p-column-filter"
           optionLabel="name"
           [style]="{ color: '#42a5f5' }"
+          [appendTo]="'body'"
         >
           <ng-template let-option pTemplate="item">
             <div class="p-multiselect-representative-option">
@@ -228,54 +254,62 @@
       <!-- <th></th> -->
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-customer>
+  <ng-template pTemplate="body" let-feedback>
     <tr class="p-selectable-row">
       <!-- <td>
         <p-tableCheckbox [value]="customer"></p-tableCheckbox>
       </td> -->
       <td class="systemIDField">
         <span class="p-column-title">SystemID</span>
-        <span [style]="{ color: '#ffa726' }"> {{ customer.system }}</span>
+        <span [style]="{ color: '#ffa726' }"> {{ feedback.system }}</span>
       </td>
       <td>
         <span class="p-column-title">Date</span>
-        <span [style]="{ color: '#ff6384' }"> {{ customer.date }}</span>
+        <span [style]="{ color: '#ff6384' }"> {{ feedback.date }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Time</span>
+        <span [style]="{ color: '#ff6384' }"> {{ feedback.time }}</span>
       </td>
       <td>
         <span class="p-column-title">Representative</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer1 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer1 }}</span>
       </td>
       <td>
         <span class="p-column-title">Country</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer2 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer2 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <p-rating [ngModel]="5"></p-rating>
+        <p-rating
+          [ngModel]="feedback.answer3"
+          [readonly]="true"
+          [cancel]="false"
+        ></p-rating>
       </td>
       <td>
         <span class="p-column-title">Activity</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer4 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer4 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer5 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer5 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer6 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer6 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer7 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer7 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer8 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer8 }}</span>
       </td>
       <td>
         <span class="p-column-title">Status</span>
-        <span [style]="{ color: '#42a5f5' }">{{ customer.answer9 }}</span>
+        <span [style]="{ color: '#42a5f5' }">{{ feedback.answer9 }}</span>
       </td>
       <!-- <td style="text-align: center">
         <button
@@ -289,7 +323,7 @@
   </ng-template>
   <ng-template pTemplate="emptymessage">
     <tr>
-      <td colspan="8">No customers found.</td>
+      <td colspan="8">No feedbacks found.</td>
     </tr>
   </ng-template>
 </p-table>
